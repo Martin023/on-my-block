@@ -1,7 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import  render, redirect
 from .forms import *
-
+import datetime as dt
 from django.contrib.auth import login, authenticate ,logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm 
@@ -9,13 +9,29 @@ from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 def home(request):
 	
-
-	return render(request,'home.html')
+	date = dt.date.today()
+	business = Business.objects.all()
+	neighbourhood = Neighbourhood.objects.all()
+	context={
+		'date':date,
+		'business':business,
+		'hoods':neighbourhood,
+	}
+	return render(request,'home.html',context)
 
 def add_hood(request):
 
 	form = NeighbourhoodForm()
 	context = {'form':form}
+	if request.method == 'POST':
+		form=NeighbourhoodForm(request.POST)
+		if form.is_valid():
+			hoods = form.save(commit=False)
+			hoods.save()
+			return redirect('home')
+
+		else:
+			form = NeighbourhoodForm()
 
 	return render(request,'add_hood.html',context)
 
