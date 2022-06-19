@@ -4,6 +4,7 @@
 
 {% block content %}
 <!-- the bootstrap navbar-->
+{% load crispy_forms_tags %} 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
     <a class="navbar-brand" href="#">On my block</a>
@@ -31,5 +32,10 @@
       </ul>
     </div>
   </nav> 
+  <div class="container-fluid">
+
+    {{ form|crispy }}
+
+  </div>
 
 {% endblock%}

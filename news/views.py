@@ -1,5 +1,6 @@
+from multiprocessing import context
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm
+from .forms import *
 
 from django.contrib.auth import login, authenticate ,logout
 from django.contrib import messages
@@ -7,8 +8,10 @@ from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def home(request):
-    
-    return render(request,'home.html')
+	form = NeighbourhoodForm()
+	context = {'form':form}
+
+	return render(request,'home.html',context)
 
 def register(request):
 	if request.method == "POST":

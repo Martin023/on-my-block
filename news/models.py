@@ -15,7 +15,7 @@ class Admin(models.Model):
 class Neighbourhood(models.Model):
     neighbourhood_name = models.CharField(max_length=15)
     neighbourhood_location = models.CharField(max_length=15)
-    occupants_count = models.IntegerField
+    occupants_count = models.IntegerField()
     admin = models.ForeignKey(Admin,on_delete=models.CASCADE)
 
     def __str__(self):
