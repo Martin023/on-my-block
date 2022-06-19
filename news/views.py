@@ -8,10 +8,16 @@ from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def home(request):
+	
+
+	return render(request,'home.html')
+
+def add_hood(request):
+
 	form = NeighbourhoodForm()
 	context = {'form':form}
 
-	return render(request,'home.html',context)
+	return render(request,'add_hood.html',context)
 
 def register(request):
 	if request.method == "POST":
