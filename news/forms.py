@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from news.models import Neighbourhood
+
 
 # Create your forms here.
 
@@ -18,3 +20,4 @@ class NewUserForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
