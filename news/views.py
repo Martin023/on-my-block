@@ -36,6 +36,22 @@ def add_hood(request):
 
 	return render(request,'add_hood.html',context)
 
+def add_business(request):
+	form = BusinessForm()
+	context = {
+		'form':form,
+	}
+	if request.method == 'POST':
+		form = BusinessForm(request.POST)
+		if form.is_valid():
+			businesses = form.save(commit=False)
+			businesses.save()
+			return redirect('home')
+		else:
+			form = BusinessForm()
+
+	return render(request,'addbusiness.html',context)
+
 def register(request):
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
