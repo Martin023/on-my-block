@@ -32,4 +32,4 @@ class BusinessForm(forms.ModelForm):
 	
 	class Meta:
 		model = Business
-		fields = ['business_name','neighbourhood_name','business_email']
+		fields = ['business_name','neighbourhood_name','business_image','business_email']
