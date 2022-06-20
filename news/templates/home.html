@@ -21,6 +21,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Welcome, {{user.username}}</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/addblock">Add your block</a>
+          </li>
   
         {% else %}
   
@@ -32,13 +35,29 @@
       </ul>
     </div>
   </nav> 
-  <div class="container-fluid">
+  <div>
+    <div class="container-fluid">
 
-    <h6>Know your block </h6>
-    <p>We keep you in the know </p>
-    please select your block:
+        <h6>Know your block </h6>
+        <p>We keep you in the know </p>
+        please select your block:
+        
     
-
+      </div>
+    <div class="container">
+        {% for i in hoods %}
+        <div class="business-btn">
+            <button class="btn btn-success">{{i.neighbourhood_name}}</button>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="container-fluid">
+        {% for i in business %}
+        <div class="card">
+            <p>{{ i.business_name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
   </div>
-
 {% endblock%}

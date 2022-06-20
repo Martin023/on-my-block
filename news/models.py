@@ -9,7 +9,7 @@ class Admin(models.Model):
     admin_name=models.CharField(max_length=30)
 
     def __str__(self):
-        return self.name
+        return self.admin_name
 
 
 class Neighbourhood(models.Model):

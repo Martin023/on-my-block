@@ -12,6 +12,7 @@ def home(request):
 	date = dt.date.today()
 	business = Business.objects.all()
 	neighbourhood = Neighbourhood.objects.all()
+	
 	context={
 		'date':date,
 		'business':business,

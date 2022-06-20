@@ -9,8 +9,11 @@
 
 <div class="container addform">
     <form action="" method="POST">
+        {% csrf_token %}
 
         {{form|crispy}}
+
+        <button type="submit">Save</button>
     </form>
 </div>
 
