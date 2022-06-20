@@ -12,10 +12,15 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from decouple import config
 from pathlib import Path
-
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+cloudinary.config( 
+  cloud_name = config("CLOUD_NAME"),
+  api_key = config("API_KEY"), 
+  api_secret = config("API_SECRET") 
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
