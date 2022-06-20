@@ -41,13 +41,14 @@ def add_business(request):
 	context = {
 		'form':form,
 	}
-	current_user = request.user
+	# current_user = request.user
 
 	if request.method == "POST":
-		form = BusinessForm(request.POST)
+		form = BusinessForm(request.POST,request.FILES)
+		print(request.POST.get('business_image'))
 		if form.is_valid():
 			business = form.save(commit=False)
-			business.user = current_user
+			business.user = request.user
 			business.save()
 			messages.success(request, "Business saved!." )
 			return redirect('home')

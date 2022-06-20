@@ -39,7 +39,7 @@
     </div>
   </nav> 
   <div>
-    <div class="container-fluid">
+    <div class="container-fluid hero">
 
         <h6>Know your block </h6>
         <p>We keep you in the know </p>
@@ -47,17 +47,20 @@
         
     
       </div>
-    <div class="container">
+    <div class="container select_hood">
         {% for i in hoods %}
         <div class="business-btn">
             <button class="btn btn-success">{{i.neighbourhood_name}}</button>
         </div>
         {% endfor %}
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid businesses">
         {% for i in business %}
         <div class="card">
             <p>{{ i.business_name }}</p>
+            <img src="{{i.business_image.url}}" class="img-responsive" alt="">
+            <p>{{ i.business_email}}</p>
+            <p>Owner: {{ i.business_user }}</p>
         </div>
         {% endfor %}
     </div>

@@ -33,7 +33,7 @@ class Business(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     neighbourhood_name = models.ForeignKey(Neighbourhood,on_delete=models.CASCADE)
     business_email = models.EmailField()
-    business_image = CloudinaryField("business image")
+    business_image = CloudinaryField("businessimage")
 
     def __str__(self):
         return self.business_name

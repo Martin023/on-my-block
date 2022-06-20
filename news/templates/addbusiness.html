@@ -9,7 +9,7 @@
 <h4 align="center"style='margin-top:2%'>Add a business</h4>
 <div class="container addform">
    
-    <form action="" method="POST">
+    <form method="POST" enctype="multipart/form-data"> 
         {% csrf_token %}
 
         {{form|crispy}}
