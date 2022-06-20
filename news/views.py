@@ -41,13 +41,18 @@ def add_business(request):
 	context = {
 		'form':form,
 	}
-	if request.method == 'POST':
+	current_user = request.user
+
+	if request.method == "POST":
 		form = BusinessForm(request.POST)
 		if form.is_valid():
-			businesses = form.save(commit=False)
-			businesses.save()
+			business = form.save(commit=False)
+			business.user = current_user
+			business.save()
+			messages.success(request, "Business saved!." )
 			return redirect('home')
 		else:
+			messages.error(request, "Please check your inputs!." )
 			form = BusinessForm()
 
 	return render(request,'addbusiness.html',context)

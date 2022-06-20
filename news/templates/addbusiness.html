@@ -6,10 +6,10 @@
 
 {% load crispy_forms_tags %}  
 
-
+<h4 align="center"style='margin-top:2%'>Add a business</h4>
 <div class="container addform">
-    <h4>Add a business</h4>
-    <form action="addbussiness" method="POST">
+   
+    <form action="" method="POST">
         {% csrf_token %}
 
         {{form|crispy}}
