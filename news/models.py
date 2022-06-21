@@ -21,10 +21,10 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return self.neighbourhood_name
 
-    def create_neigborhood(self):
+    def create_neigbourhood(self):
         self.save()
 
-    def delete_neigborhood(self):
+    def delete_neigbourhood(self):
         self.delete()
 
     @classmethod
